@@ -14,20 +14,19 @@ public class binaryConverter implements ActionListener{
 	JPanel panel;
 	JButton button;
 	JTextField text;
-	
+	JTextField answer = new JTextField(20);
 public static void main(String[] args) {
 	
 	new binaryConverter().createUI();
 }	
 	void createUI() {
-	text = new JTextField (20);
 	frame = new JFrame ();
 	panel = new JPanel ();
 	button = new JButton ("convert");
 	frame.setTitle("Convert 8 bits of binary to ASCII");
 	
 	frame.add(panel);
-	panel .add(text);
+	panel .add(answer);
 	panel .add (button);
 	
 	button.addActionListener(this);
@@ -40,9 +39,8 @@ public static void main(String[] args) {
 }
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String tex = text.getText();
-
-		convert(tex);
+		String con = convert(answer.getText());
+		JOptionPane.showMessageDialog(null, con);
 		
 	}
 	String convert(String input) {
